@@ -1,0 +1,26 @@
+.col-3 {
+    width: 33% !important;
+}
+
+.card-products {
+    background-color: #15202c !important;
+}
+
+.name-product {
+    min-height: 50% !important;
+}
+
+.prodcs {
+    height: 100% !important;
+}
+
+@media (max-width: 575.98px) {
+    .col-8 {
+        flex: 0 0 auto;
+        width: 100% !important;
+    }
+
+    .hayutopup-hp3 {
+        text-align: center;
+    }
+}
