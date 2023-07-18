@@ -18,8 +18,8 @@
             <div class="col-lg-12 d-flex align-items-stretch">
                 <div class="card w-100 position-relative overflow-hidden">
                     <div class="card-body p-4">
-                        <h5 class="card-title fw-semibold">Change Profile</h5>
-                        <p class="card-subtitle mb-4">To change your personal detail , edit and save from here</p>
+                        <h5 class="card-title fw-semibold">Change Password</h5>
+                        <p class="card-subtitle mb-4">Untuk mengamankan password anda, silahkan ganti password pada form berikut</p>
                         <form action="{{ route('profile.changePassword.post') }}" method="POST">
                             @csrf
                             <div class="row">
