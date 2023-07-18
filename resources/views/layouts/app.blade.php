@@ -96,6 +96,18 @@
                             <div data-i18n="Basic">Produk</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ request()->routeIs('admin.pesanan.index') ? 'active' : '' }}">
+                        <a href="{{ route('admin.pesanan.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cart"></i>
+                            <div data-i18n="Basic">Pesanan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->routeIs('admin.user.index') ? 'active' : '' }}">
+                        <a href="{{ route('admin.user.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div data-i18n="Basic">Users</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->

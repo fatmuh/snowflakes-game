@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\LandingPageController;
 
 /*
@@ -55,6 +57,18 @@ Route::middleware(['auth','ceklevel:Admin'])->group(function () {
     Route::controller(ProductController::class)->prefix('admin/produk')->name('admin.produk.')->group( function() {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
+        Route::patch('/update/{id}', 'update')->name('update');
+        Route::delete('/delete/{id}', 'delete')->name('delete');
+    });
+
+    Route::controller(TransaksiController::class)->prefix('admin/pesanan')->name('admin.pesanan.')->group( function() {
+        Route::get('/', 'index')->name('index');
+        Route::patch('/update/{id}', 'update')->name('update');
+        Route::delete('/delete/{id}', 'delete')->name('delete');
+    });
+
+    Route::controller(UserController::class)->prefix('admin/user')->name('admin.user.')->group( function() {
+        Route::get('/', 'index')->name('index');
         Route::patch('/update/{id}', 'update')->name('update');
         Route::delete('/delete/{id}', 'delete')->name('delete');
     });
