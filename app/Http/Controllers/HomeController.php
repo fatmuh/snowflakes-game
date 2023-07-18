@@ -30,6 +30,9 @@ class HomeController extends Controller
         $produk = Product::all()->count();
         $game = Game::all()->count();
         $payment = Payment::all()->count();
+        $pending = Payment::where('status', 'PENDING')->count();
+        $proses = Payment::where('status', 'PROSES')->count();
+        $selesai = Payment::where('status', 'SELESAI')->count();
         $month = Carbon::now()->format('m');
         $totalPendapatan = Payment::whereMonth('created_at', $month)->sum('price');
 
@@ -37,6 +40,9 @@ class HomeController extends Controller
             'produk' => $produk,
             'game' => $game,
             'payment' => $payment,
+            'pending' => $pending,
+            'proses' => $proses,
+            'selesai' => $selesai,
             'totalPendapatan' => $totalPendapatan,
         ]);
     }

@@ -21,10 +21,11 @@
                         <div class="col-sm-7">
                             <div class="card-body">
                                 <h5 class="card-title text-primary">Welcome {{ auth()->user()->name }}! 🎉</h5>
+                                <p>
+                                    Anda memiliki <span class="fw-bold">{{ $pending }}</span> pesanan yang belum dikerjakan. dan memiliki <span class="fw-bold">{{ $proses }}</span> yang masih diproses.
+                                </p>
                                 <p class="mb-4">
-                                    You have done <span class="fw-bold">72%</span> more sales today. Check your new
-                                    badge in
-                                    your profile.
+                                    Total Transaksi Selesai : <span class="fw-bold">{{ $selesai }}</span>
                                 </p>
 
                                 <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
