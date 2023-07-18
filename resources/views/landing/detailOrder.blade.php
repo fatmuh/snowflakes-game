@@ -23,7 +23,7 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Harga</label>
                             <input type="text" name="name" class="form-control"
-                                value="{{ "Rp".number_format($payment->product->price,2,',','.') }}" readonly>
+                                value="{{ "Rp".number_format($payment->price,2,',','.') }}" readonly>
                         </div>
 
                         <div class="col-md-6 mb-3">

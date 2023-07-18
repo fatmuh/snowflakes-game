@@ -89,7 +89,7 @@
                     <div class="card-info">
                       <p class="card-text">Total Pesanan</p>
                       <div class="d-flex align-items-end mb-2">
-                        <h4 class="card-title mb-0 me-2">3</h4>
+                        <h4 class="card-title mb-0 me-2">{{ $payment }}</h4>
                       </div>
                     </div>
                     <div class="card-icon">
@@ -106,9 +106,9 @@
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
                     <div class="card-info">
-                      <p class="card-text">Total Pendapatan</p>
+                      <p class="card-text">Pendapatan <b>({{ date('M Y') }})</b></p>
                       <div class="d-flex align-items-end mb-2">
-                        <h4 class="card-title mb-0 me-2">Rp100.000</h4>
+                        <h4 class="card-title mb-0 me-2">{{ "Rp".number_format($totalPendapatan,2,',','.') }}</h4>
                       </div>
                     </div>
                     <div class="card-icon">

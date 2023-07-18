@@ -21,6 +21,7 @@ class Payment extends Model
         'phone',
         'email',
         'status',
+        'price',
     ];
 
     protected $hidden;

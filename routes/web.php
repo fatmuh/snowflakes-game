@@ -28,7 +28,11 @@ Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->nam
 Route::controller(LandingPageController::class)->name('landing.')->group( function() {
     Route::get('/game/{slug}', 'detail')->name('detail');
     Route::post('/store', 'store')->name('store');
-    Route::get('/riwayat-pembelian', 'historyOrder')->name('history-order');
+    Route::get('/riwayat-pesanan', 'historyOrder')->name('history-order');
+    Route::get('/profil', 'profil')->name('profil');
+    Route::put('/profil/update', 'update')->name('update');
+    Route::get('/profil/ganti-password', 'changePassword')->name('changePassword');
+    Route::post('/profil/ganti-password', 'changePasswordPost')->name('changePassword.post');
 });
 
 Route::middleware(['auth','ceklevel:Admin'])->group(function () {

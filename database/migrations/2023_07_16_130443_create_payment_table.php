@@ -24,6 +24,7 @@ class CreatePaymentTable extends Migration
             $table->string('account_number')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            $table->integer('price')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

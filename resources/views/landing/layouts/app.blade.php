@@ -102,8 +102,8 @@
                         @endif
 
                         @if (auth()->user()->role == "User")
-                        <li><a class="dropdown-item text-white" href="/deposit" id="header_saldo"><i class="fas fa-user"></i> Profil</a></li>
-                        <li><a class="dropdown-item text-white" href="/deposit" id="header_saldo"><i class="fas fa-cog"></i> Ganti Password</a></li>
+                        <li><a class="dropdown-item text-white" href="{{ route('landing.profil') }}"><i class="fas fa-user"></i> Profil</a></li>
+                        <li><a class="dropdown-item text-white" href="{{ route('landing.changePassword') }}"><i class="fas fa-cog"></i> Ganti Password</a></li>
                         <li>
                             @endif
                             <hr class="dropdown-divider">

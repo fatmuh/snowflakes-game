@@ -75,7 +75,7 @@
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
+                <a href="{{ route('login') }}" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
                     <img src="{{ asset('assets/images/favicon.png') }}" width="30px">
                   </span>
@@ -124,6 +124,13 @@
                     </button>
                 </div>
               </form>
+
+              <p class="text-center">
+                <span>Tidak memiliki akun?</span>
+                <a href="{{ route('register') }}">
+                  <span>Daftar Akun</span>
+                </a>
+              </p>
 
             </div>
           </div>

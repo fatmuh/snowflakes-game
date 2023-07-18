@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Payment;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
@@ -27,9 +29,15 @@ class HomeController extends Controller
     {
         $produk = Product::all()->count();
         $game = Game::all()->count();
+        $payment = Payment::all()->count();
+        $month = Carbon::now()->format('m');
+        $totalPendapatan = Payment::whereMonth('created_at', $month)->sum('price');
+
         return view('home', [
             'produk' => $produk,
             'game' => $game,
+            'payment' => $payment,
+            'totalPendapatan' => $totalPendapatan,
         ]);
     }
 }

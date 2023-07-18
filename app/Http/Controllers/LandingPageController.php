@@ -6,6 +6,8 @@ use App\Models\Game;
 use App\Models\Payment;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LandingPageController extends Controller
 {
@@ -46,8 +48,11 @@ class LandingPageController extends Controller
             $validatedData['proof_of_payment'] = $request->file('proof_of_payment')->store('image/proof_of_payment');
         }
 
+        $product = Product::where('id', $request->product_id)->first();
+
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['status'] = 'PENDING';
+        $validatedData['price'] = $product->price;
 
         Payment::create($validatedData);
         return redirect()->route('landing.history-order')->with('success', 'Berhasil Memesan Produk!');
@@ -73,5 +78,38 @@ class LandingPageController extends Controller
         return view('landing.history', [
             'data' => $data,
         ]);
+    }
+
+    public function profil()
+    {
+        return view('landing.profil');
+    }
+
+    public function changePassword()
+    {
+        return view('landing.change-password');
+    }
+
+    public function update(Request $request)
+    {
+        $user = auth()->user();
+        $userData = $request->except(['_token']);
+        $user->fill($userData);
+        $user->save();
+        return redirect()->route('landing.profil')->with('success', 'Profil Berhasil Diubah!');
+    }
+
+    public function changePasswordPost(Request $request)
+    {
+        $validatedData = $request->validate([
+            'old_password' => ['required', 'current_password'],
+            'password'     => ['required', 'confirmed']
+        ]);
+
+        $user = Auth::user();
+        $user->password = Hash::make($validatedData['password']);
+        $user->save();
+
+        return redirect()->route('landing.changePassword')->with('success', 'Kata Sandi Berhasil Diubah!');
     }
 }

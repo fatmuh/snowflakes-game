@@ -1,7 +1,7 @@
 @extends('landing.layouts.app')
 
 @section('title')
-<title>SNOWFLAKES - Top Up Termurah</title>
+<title>SNOWFLAKES - Riwayat Pesanan</title>
 @endsection
 
 @section('content')
@@ -37,7 +37,7 @@
                                         <td>#{{ $payment->id }}</td>
                                         <td>{{ $payment->product->name }}</td>
                                         <td>{{ $payment->user_game }}</td>
-                                        <td>{{ "Rp".number_format($payment->product->price,2,',','.') }}</td>
+                                        <td>{{ "Rp".number_format($payment->price,2,',','.') }}</td>
                                         <td>{{ $payment->status }}</td>
                                         <td class="text-center"><a href="" class="btn btn-icon btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#ModalDetail{{ $payment->id }}">
